@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Simple and accessible online calculator for basic mathematical operations"
+    />
+    <meta
+      name="keywords"
+      content="calculator, online calculator, math, addition, subtraction, multiplication, division"
+    />
+    <meta name="author" content="ArtemSergeevich" />
+    <title>Accessible Online Calculator - Basic Mathematical Operations</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main
+      id="calculator-js"
+      class="calculator"
+      role="application"
+      aria-label="Calculator"
+    >
+      <h1 class="sr-only">Online Calculator</h1>
+      <section
+        id="screen-calculator-js"
+        class="screen"
+        aria-live="polite"
+        aria-atomic="true"
+      ></section>
+      <section id="buttons-calculator-js" class="buttons">
+        <button class="clear" aria-label="Clear">C</button>
+
+        <button class="back" aria-label="Backspace">⌫</button>
+        <button class="operator" aria-label="Percentage">%</button>
+        <button class="operator" aria-label="Divide">÷</button>
+
+        <button class="digit" aria-label="7">7</button>
+        <button class="digit" aria-label="8">8</button>
+        <button class="digit" aria-label="9">9</button>
+
+        <button class="operator" aria-label="Multiply">×</button>
+
+        <button class="digit" aria-label="4">4</button>
+        <button class="digit" aria-label="5">5</button>
+        <button class="digit" aria-label="6">6</button>
+
+        <button class="operator" aria-label="Subtract">-</button>
+
+        <button class="digit" aria-label="1">1</button>
+        <button class="digit" aria-label="2">2</button>
+        <button class="digit" aria-label="3">3</button>
+
+        <button class="operator" aria-label="Plus">+</button>
+
+        <button class="digit" aria-label="0">0</button>
+        <button class="digit" aria-label="Decimal point">.</button>
+
+        <button class="equals" aria-label="Equals">=</button>
+      </section>
+    </main>
+    <footer>
+      <p>Accessible Online Calculator - Basic Mathematical Operations 2025</p>
+    </footer>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

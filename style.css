@@ -1,0 +1,205 @@
+/* CSS variables for consistent theming control */
+:root{
+
+    /* Main background gradient */
+    --bodyBackground:linear-gradient(rgb(210, 217, 210), rgb(132, 146, 132),rgb(69, 80, 69));
+    --sr-onlyText-shadow:0 -5px 10px rgb(244, 249, 247);
+
+    /* Shadows for various interface elements */
+    --screenBox-shadow: 0 -5px 10px rgb(14, 158, 88);
+    --buttonsBox-shadow:0 5px 10px rgb(14, 158, 88);
+
+    /* Color schemes for different types of buttons */
+    --buttonsBackground-color:azure;
+    --buttonsBackgroundDigit:linear-gradient(rgb(246, 249, 249),rgb(204, 229, 229),rgb(185, 188, 188));
+    --buttonsBox-shadowDigit:0px 0px 10px rgb(84, 81, 81);
+    --buttonsBackgroundOperator:linear-gradient(rgb(246, 249, 249),rgb(137, 190, 190),rgb(58, 97, 97));
+    --buttonsBox-shadowOperator: 0px 0px 10px rgb(14, 158, 88);
+    --buttonsBackgroundEquals:linear-gradient(rgb(246, 249, 249),rgb(198, 224, 224),rgb(146, 165, 165));
+    --buttonsBox-shadowEquals:0px 0px 10px rgb(14, 158, 88);
+    --buttonsBackgroundClear:linear-gradient(rgb(249, 246, 246),rgb(210, 190, 190),rgb(183, 158, 158));
+    --buttonsBox-shadowClear:0px 0px 10px rgb(238, 120, 120);
+    --buttonsBackgroundBack:linear-gradient(rgb(244, 249, 250),rgb(197, 233, 242),rgb(174, 201, 206));
+    --buttonsBox-shadowBack:0px 0px 10px rgb(68, 212, 237);
+}
+
+    
+
+/* Reset browser default styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Styles for interactive button states */
+.buttons button:hover {
+   
+   padding: 0 0;
+    opacity: 0.9;
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+}
+
+.buttons button:active {
+    border: 4px solid rgb(23, 201, 142);
+    transform: translateY(0px);
+    
+}
+
+
+/* Basic page structure */
+body{
+    background: var(--bodyBackground);
+    display: flex;
+    flex-direction: column;
+    min-height: 99vh;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 0.25rem;
+    
+}
+
+/* Main calculator container */
+#calculator-js{
+  margin: 0 auto;
+    display: flex;
+    flex-direction: column;  
+    min-width: 100%;  
+    width: 100%; /* добавить это */
+    max-width: 600px; /* и это для десктопа */
+}
+    
+    
+    
+
+
+.sr-only{
+    text-shadow: var(--sr-onlyText-shadow);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center
+}
+
+
+/* Calculator display styles */
+.screen{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: var(--screenBox-shadow);
+    border-radius: 10px 10px 0 0 ;
+    min-height: 10vh;
+    background-color: aliceblue;
+    font-size: 40px;
+    white-space: pre; 
+    font-family: monospace; 
+    
+}
+
+
+/* Calculator button grid */
+.buttons{
+    box-shadow: var(--buttonsBox-shadow);
+    border-radius: 0 0 10px 10px;
+    min-height: 70vh;
+    padding: 0.25rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+   background-color:var(--buttonsBackground-color);
+   gap: 0.25rem;
+}
+
+
+/* Base styles for all buttons */
+.buttons button {
+    font-size: 40px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* Styles for numeric keys */
+.digit{
+    background: var(--buttonsBackgroundDigit);
+    box-shadow: var(--buttonsBox-shadowDigit)
+}
+
+/* Styles for action buttons */
+.operator{
+    border-radius: 5px;
+    background: var(--buttonsBackgroundOperator);
+    box-shadow: var(--buttonsBox-shadowOperator);
+        font-size: 50px
+}
+    
+/* The equals button takes up 2 columns */
+.equals {
+        grid-column: span 2; 
+    background: var(--buttonsBackgroundEquals);
+    box-shadow: var(--buttonsBox-shadowEquals);
+    }
+
+
+/* Styles for the clear button */
+.clear{
+    color: brown;
+    background: var(--buttonsBackgroundClear);
+    box-shadow: var(--buttonsBox-shadowClear);
+}
+
+/* Styles for the backspace button */
+.back {
+    color: rgb(14, 158, 88);
+    background: var(--buttonsBackgroundBack);
+    box-shadow: var(--buttonsBox-shadowBack);
+}
+
+
+/* Footer Styles */
+footer p {
+    font-size: 20px;
+    color: aliceblue;
+}
+.buttons {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+
+/* Adaptability for tablets and large phones */
+@media (min-width: 500px) {
+    body{       
+        margin: 0 auto;
+        padding: 0 2rem;        
+    }
+
+  
+
+    .screen{        
+        padding: 20px;       
+        min-height: 15vh;
+        font-size: 60px;       
+         }
+    .buttons{
+        padding: 1.25rem;
+       gap: 1.25rem;
+    }
+
+
+}
+
+/* Desktop responsiveness */
+@media (min-width: 1000px) {
+    #calculator-js{
+       
+          min-width: 600px;  
+          
+          
+          
+          
+      }
+}
