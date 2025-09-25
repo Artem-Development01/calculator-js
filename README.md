@@ -30,6 +30,3 @@ project/
 
 
 
-
-📄 License
-MIT License - feel free to use for learning and inspiration.
