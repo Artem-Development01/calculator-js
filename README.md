@@ -1,32 +1,37 @@
-Accessible Calculator - Educational Project
+# Calculator v2.0 - Educational Project
 
-This is my first JavaScript calculator after 10 months of learning. It has a clean MVC architecture.
+A JavaScript calculator implementing MVC architecture with mathematical expression parsing.
 
-IMPORTANT: This is an educational project. 
-The calculator processes operations sequentially (left-to-right), 
-not with mathematical precedence. 
-Example: 2 + 2 × 2 = 8 (not 6)
+## Key Features
 
-Features:
-- Full accessibility (keyboard, screen readers)
-- Responsive mobile-first design
-- MVC architecture pattern
-- Vanilla JavaScript, no dependencies
+- Basic operations: +, -, ×, ÷, parentheses
+- Advanced functions: sin, cos, tan, lg, ln, √
+- Percentage handling: n% = n/100 (100 + 10% = 100.1)
+- Shunting yard algorithm for expression parsing
+- Dark/light theme switching
+- Full keyboard support
+- Responsive design
 
-Quick start:
-1. Clone repository: git clone https://artem-development01.github.io/calculator-js/
-2. Open index.html in browser
-3. Use with mouse or keyboard
+## Technical Implementation
 
-Project structure:
-project/
-├── index.html
-├── style.css
-├── README.md
-└── js/
-    ├── app.js (Controller)
-    ├── model.js (Model)
-    └── view.js (View)
+- **Architecture**: MVC pattern
+- **Algorithm**: Shunting yard for RPN conversion
+- **Validation**: Input sequence validation
+- **Accessibility**: ARIA labels, keyboard navigation
 
+## Usage
 
+**Web version**: https://artem-development01.github.io/calculator-js/
 
+**Local development**:
+```bash
+git clone https://github.com/Artem-Development01/calculator-js.git
+open index.html
+```
+## Project Structure
+```
+js/
+├── app.js      # Controller
+├── view.js     # View (UI handling)
+└── model.js    # Model (business logic)
+```
