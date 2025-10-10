@@ -1,205 +1,357 @@
 /* CSS variables for consistent theming control */
-:root{
+:root {
+   /* Main background gradient - светлая тема */
+--bodyBackground: linear-gradient(#f8f9fa, #e9ecef, #dee2e6, #ced4da, #adb5bd, #6c757d);
 
-    /* Main background gradient */
-    --bodyBackground:linear-gradient(rgb(210, 217, 210), rgb(132, 146, 132),rgb(69, 80, 69));
-    --sr-onlyText-shadow:0 -5px 10px rgb(244, 249, 247);
+/* Color schemes for different types of buttons */
+--buttonsBackground-color: #ffffff;
+--buttonsBackgroundDigit: linear-gradient(#ffffff, #f8f9fa, #e9ecef);
+--buttonsBox-shadowDigit: 0px 0px 2px rgba(0, 0, 0, 0.1);
+--buttonsBackgroundOperator: linear-gradient(#ffffff, #e3f2fd, #6c757d);
+--buttonsBox-shadowOperator: 0px 0px 2px rgba(33, 150, 243, 0.3);
+--buttonsBackgroundEquals: linear-gradient(#ffffff, #e8f5e8, #6c757d);
+--buttonsBox-shadowEquals: 0px 0px 2px rgba(76, 175, 80, 0.3);
+--buttonsBackgroundClear: linear-gradient(#ffffff, #ffebee, #ffcdd2);
+--buttonsBox-shadowClear: 0px 0px 2px rgba(244, 67, 54, 0.3);
+--buttonsBackgroundBack: linear-gradient(#ffffff, #fff3e0, #ffecb3);
+--buttonActiveColor: black;
+--buttonsColor: black;
 
-    /* Shadows for various interface elements */
-    --screenBox-shadow: 0 -5px 10px rgb(14, 158, 88);
-    --buttonsBox-shadow:0 5px 10px rgb(14, 158, 88);
-
-    /* Color schemes for different types of buttons */
-    --buttonsBackground-color:azure;
-    --buttonsBackgroundDigit:linear-gradient(rgb(246, 249, 249),rgb(204, 229, 229),rgb(185, 188, 188));
-    --buttonsBox-shadowDigit:0px 0px 10px rgb(84, 81, 81);
-    --buttonsBackgroundOperator:linear-gradient(rgb(246, 249, 249),rgb(137, 190, 190),rgb(58, 97, 97));
-    --buttonsBox-shadowOperator: 0px 0px 10px rgb(14, 158, 88);
-    --buttonsBackgroundEquals:linear-gradient(rgb(246, 249, 249),rgb(198, 224, 224),rgb(146, 165, 165));
-    --buttonsBox-shadowEquals:0px 0px 10px rgb(14, 158, 88);
-    --buttonsBackgroundClear:linear-gradient(rgb(249, 246, 246),rgb(210, 190, 190),rgb(183, 158, 158));
-    --buttonsBox-shadowClear:0px 0px 10px rgb(238, 120, 120);
-    --buttonsBackgroundBack:linear-gradient(rgb(244, 249, 250),rgb(197, 233, 242),rgb(174, 201, 206));
-    --buttonsBox-shadowBack:0px 0px 10px rgb(68, 212, 237);
+/* .screen-expression , screen-result and error-message */
+--screenBackground: #ffffff;
+--screenColor: #333333;
+--screenErrorColor: red;
+--screenErrorBackground:#ffffff;
+/* Footer */
+--footerColor:white;
 }
 
+/* dark theme*/
+[data-theme="dark"]{
     
+/* Main background gradient */
+--bodyBackground: linear-gradient(black,rgb(53, 52, 52),rgb(70, 68, 68),rgb(100, 98, 98),rgb(187, 184, 184),rgb(248, 247, 247));
+ 
+
+/* Color schemes for different types of buttons */
+--buttonsBackground-color: #333;
+--buttonsBackgroundDigit: linear-gradient(#111,#333,#999);
+--buttonsBox-shadowDigit:0px 0px 2px white;
+--buttonsBackgroundOperator: linear-gradient(#111,#222,rgb(94, 49, 49));
+--buttonsBox-shadowOperator: 0px 0px 2px white;
+--buttonsBackgroundEquals: linear-gradient(#111,#706a6a,white);
+--buttonsBox-shadowEquals:0px 0px 2px white;
+--buttonsBackgroundClear: linear-gradient(#ca5b5b,#222,rgb(94, 49, 49));
+--buttonsBox-shadowClear: 0px 0px 2px white;
+--buttonsBackgroundBack: linear-gradient(#ca5b5b,#222,rgb(94, 49, 49));
+--buttonActiveColor: white;
+--buttonsColor:white;
+
+/*.screen-expression and screen-result  */
+--screenBackground: #333;
+--screenColor: white;
+--screenErrorColor: red;
+--screenErrorBackground:  #333;
+        
+/*Footer*/
+--footerColor:black;
+}
+
 
 /* Reset browser default styles */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-/* Styles for interactive button states */
-.buttons button:hover {
-   
-   padding: 0 0;
-    opacity: 0.9;
-    transform: translateY(-2px);
-    transition: all 0.2s ease;
-}
-
-.buttons button:active {
-    border: 4px solid rgb(23, 201, 142);
-    transform: translateY(0px);
-    
-}
-
-
 /* Basic page structure */
-body{
+body {
+    margin: 0 auto;
+    padding: 0 0.25rem;
     background: var(--bodyBackground);
     display: flex;
     flex-direction: column;
-    min-height: 99vh;
+    min-height: 100vh;
     justify-content: space-between;
-    margin: 0 auto;
-    padding: 0 0.25rem;
+}
+
+/*theme switch button*/
+.theme {
+    top: 5px;
+    padding: 5px 10px;
+    font-size: 15px;
+    background: var(--buttonsBackground-color);
+    color: var(--buttonsColor);
+    border: 1px solid var(--buttonActiveColor);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s ;
     
 }
 
+.theme:hover {
+    background: var(--buttonActiveColor);
+    color: var(--screenBackground);
+}
 /* Main calculator container */
-#calculator-js{
-  margin: 0 auto;
+#calculator-js {
+    margin: 0 auto;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;  
-    min-width: 100%;  
-    width: 100%; /* добавить это */
-    max-width: 600px; /* и это для десктопа */
+    width: 100%;
+    max-width: 600px;
+    flex-grow: 1;
+    justify-content: space-around;
 }
-    
-    
-    
 
-
-.sr-only{
-    text-shadow: var(--sr-onlyText-shadow);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    text-align: center
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 
 /* Calculator display styles */
-.screen{
+.screen-expression {
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    box-shadow: var(--screenBox-shadow);
-    border-radius: 10px 10px 0 0 ;
-    min-height: 10vh;
-    background-color: aliceblue;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px 20px 5px 20px;
+    border-radius: 10px 10px 0 0;
+    flex-grow: 2;
+    background-color: var(--screenBackground);
+    font-size: 23px; /* Fixed size */
+    min-height: 60px;/* Add minimum height */
+    white-space: normal; /* Allow hyphenation */
+    word-break: break-all;/* Move anywhere */
+    font-family: monospace;
+    overflow: hidden;    
+    color: var(--screenColor);
+}
+/* Screen reader only text */
+.screen-result {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 5px 20px 10px 20px;
+    flex-grow: 0.5;
+    background-color: var(--screenBackground);
+    font-size: 20px;/* Fixed size */
+    min-height: 60px; /* Add minimum height */
+    white-space: normal; /* Allow hyphenation */
+    word-break: break-all;/* Move anywhere */
+    overflow: hidden;
+    font-weight: bold;   
+    border-radius: 0;
+    color: var(--screenColor);
+}
+
+/*message about incorrect input*/
+.error-message{
+    text-align: center;
+    max-height: 0;
+    padding: 0 20px;
     font-size: 40px;
-    white-space: pre; 
-    font-family: monospace; 
-    
+    color: var(--screenErrorColor);
+    background-color: var(--screenErrorBackground);
+    overflow: hidden;
+    transition: 0.3s 
 }
 
+.show {
+    max-height: 100px;
+    padding: 5px 20px 10px 20px;
+}
 
-/* Calculator button grid */
-.buttons{
+/* Calculator button grid*/
+.buttons {
     box-shadow: var(--buttonsBox-shadow);
-    border-radius: 0 0 10px 10px;
-    min-height: 70vh;
-    padding: 0.25rem;
+    border-radius: 0 0 5px 5px;
+    flex-grow: 3;
+    padding: 0.5rem;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-   background-color:var(--buttonsBackground-color);
-   gap: 0.25rem;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: var(--buttonsBackground-color);
+    gap: 0.5rem;
+    min-height: 0;
 }
-
 
 /* Base styles for all buttons */
 .buttons button {
-    font-size: 40px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    color: var(--buttonsColor);
+    font-size: 20px;
+    padding: 0;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
+/* Styles for interactive button states */
+
+.buttons button:focus-visible {
+    outline: 3px solid var(--buttonActiveColor);
+    outline-offset: 2px;
+}
+.buttons button:active {
+   
+    box-shadow: inset 0 0 0 3px var(--buttonActiveColor);
+
+}
 
 /* Styles for numeric keys */
-.digit{
+.digit {
     background: var(--buttonsBackgroundDigit);
-    box-shadow: var(--buttonsBox-shadowDigit)
+    box-shadow: var(--buttonsBox-shadowDigit);
 }
 
 /* Styles for action buttons */
-.operator{
-    border-radius: 5px;
+.operator {
+    border-radius: 8px;
     background: var(--buttonsBackgroundOperator);
     box-shadow: var(--buttonsBox-shadowOperator);
-        font-size: 50px
 }
-    
+
 /* The equals button takes up 2 columns */
 .equals {
-        grid-column: span 2; 
+    grid-column: span 2; 
     background: var(--buttonsBackgroundEquals);
     box-shadow: var(--buttonsBox-shadowEquals);
-    }
-
+    
+}
 
 /* Styles for the clear button */
-.clear{
-    color: brown;
+.clear {
+    
     background: var(--buttonsBackgroundClear);
     box-shadow: var(--buttonsBox-shadowClear);
 }
 
 /* Styles for the backspace button */
 .back {
-    color: rgb(14, 158, 88);
+   
     background: var(--buttonsBackgroundBack);
-    box-shadow: var(--buttonsBox-shadowBack);
 }
-
 
 /* Footer Styles */
-footer p {
+footer {
+    color: var(--footerColor);
+    margin:0;
+    padding: 0;
     font-size: 20px;
-    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.1px;
 }
-.buttons {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+
+footer * {    
+    text-align: center;  
 }
 
 
-/* Adaptability for tablets and large phones */
-@media (min-width: 500px) {
-    body{       
-        margin: 0 auto;
-        padding: 0 2rem;        
+/* MEDIUM SCREENS (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {       
+        padding: 0 1rem;        
     }
 
-  
+    .theme {
+        font-size: 25px;
+    }
+    .screen-expression {        
+        padding: 15px 25px 8px 25px;       
+        font-size: 33px; 
+    min-height: 80px;    
+    }
+    
+    .screen-result {
+        padding: 8px 25px 15px 25px;
+        font-size: 30px; 
+    min-height: 80px; 
+    }
+    
+    .buttons {
+        padding: 1rem;
+        gap: 0.8rem;
+        
+    }
+    
+    .buttons button {
+        min-height: 50px;
+        font-size: 30px;
+        padding: 0.8rem 0.6rem;
+    }
+    footer {
+        font-size: 30px;
+        display: flex;
+    }
+    
+}
 
-    .screen{        
-        padding: 20px;       
-        min-height: 15vh;
-        font-size: 60px;       
-         }
-    .buttons{
-        padding: 1.25rem;
-       gap: 1.25rem;
+/* LARGE SCREENS  */
+@media (min-width: 1024px) {  
+    #calculator-js {
+        min-width: 1000px;
+         max-width: 1400px;
+        width: 90%;
+    }
+    
+
+    .theme {
+        font-size: 35px;
     }
 
+    .screen-expression {
+        border-radius: 10px 10px 0 0;
+        padding: 15px 30px 8px 30px;
+        font-size: 50px; 
+        min-height: 120px; 
+        
+    }
+    
+    .screen-result {
+        border-radius: 0;        
+        font-size: 40px; 
+        min-height: 80px; 
+    
+    }
+    
+    .buttons {
+        border-radius: 0 0 10px 10px;
+        gap: 0.8rem;
+        padding: 1.2rem;
+        
+    }
+    
+    .buttons button {
+        min-height: 75px;
+        font-size: 50px;
+        padding: 1rem 0.5rem;
+    }
+    
+    
+    .buttons button:hover {
+        transform: translateY(-3px);
+    }
 
+    footer {
+        font-size: 40px;
+        display: flex;
+    }
 }
 
-/* Desktop responsiveness */
-@media (min-width: 1000px) {
-    #calculator-js{
-       
-          min-width: 600px;  
-          
-          
-          
-          
-      }
-}
+

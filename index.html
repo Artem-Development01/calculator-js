@@ -15,7 +15,10 @@
     <title>Accessible Online Calculator - Basic Mathematical Operations</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body data-theme="dark">
+    <!--theme switch button-->
+    <button class="theme">🌙 Dark theme'</button>
+    <!-- Main calculator container with ARIA application role -->
     <main
       id="calculator-js"
       class="calculator"
@@ -23,45 +26,66 @@
       aria-label="Calculator"
     >
       <h1 class="sr-only">Online Calculator</h1>
+      <!-- Expression display with live region for screen readers -->
       <section
         id="screen-calculator-js"
-        class="screen"
+        class="screen screen-expression"
         aria-live="polite"
         aria-atomic="true"
       ></section>
+      <!-- Result display with live region for screen readers -->
+      <section
+        id="screen-result-js"
+        class="screen screen-result"
+        aria-live="polite"
+        aria-atomic="true"
+      ></section>
+      <section
+        id="error-message-js"
+        class="screen error-message"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        "Invalid input. Please use valid mathematical expressions."
+      </section>
+
+      <!-- Calculator buttons grid -->
       <section id="buttons-calculator-js" class="buttons">
         <button class="clear" aria-label="Clear">C</button>
-
         <button class="back" aria-label="Backspace">⌫</button>
+        <button class="operator" aria-label="Opening parenthesis">(</button>
+        <button class="operator" aria-label="Closing parenthesis">)</button>
+        <button class="operator" aria-label="Sine">sin</button>
+        <button class="operator" aria-label="Cosine">cos</button>
+        <button class="operator" aria-label="Tangent">tan</button>
+        <button class="operator" aria-label="Logarithm">lg</button>
+        <button class="operator" aria-label="Natural logarithm">ln</button>
+        <button class="operator" aria-label="Square root">√</button>
         <button class="operator" aria-label="Percentage">%</button>
         <button class="operator" aria-label="Divide">÷</button>
-
         <button class="digit" aria-label="7">7</button>
         <button class="digit" aria-label="8">8</button>
         <button class="digit" aria-label="9">9</button>
-
         <button class="operator" aria-label="Multiply">×</button>
-
         <button class="digit" aria-label="4">4</button>
         <button class="digit" aria-label="5">5</button>
         <button class="digit" aria-label="6">6</button>
-
         <button class="operator" aria-label="Subtract">-</button>
-
         <button class="digit" aria-label="1">1</button>
         <button class="digit" aria-label="2">2</button>
         <button class="digit" aria-label="3">3</button>
-
         <button class="operator" aria-label="Plus">+</button>
-
         <button class="digit" aria-label="0">0</button>
         <button class="digit" aria-label="Decimal point">.</button>
-
         <button class="equals" aria-label="Equals">=</button>
       </section>
     </main>
+    <!-- Footer with copyright -->
     <footer>
-      <p>Accessible Online Calculator - Basic Mathematical Operations 2025</p>
+      <p>Accessible Online Calculator 2025</p>
+      <p>
+        <small>Interest: n% = n/100 | 100 + 10% = 100 + 10/100 = 100.1</small>
+      </p>
     </footer>
     <script type="module" src="js/app.js"></script>
   </body>

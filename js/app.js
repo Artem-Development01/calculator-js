@@ -23,7 +23,7 @@ class App {
   // Bridge method between View and Model
   // Receives events from View and passes them to Model for processing
   bindEvent(buttonText) {
-    this.calculatorModel.checkingEvents(buttonText);
+    this.calculatorModel.handlingInput(buttonText);
   }
   // Helper method for getting the current state of the model (for debugging)
   getCalculatorModel() {
